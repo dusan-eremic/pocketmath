@@ -5,8 +5,6 @@ The pocketmath assignment to demostrate the usage of Pocketmath RESTful API.
 git clone https://github.com/dusan-eremic/pocketmath.git
 
 ### Build
-In order to build the project run:
-
 `mvn clean compile assembly:single`
   
 ### Run
