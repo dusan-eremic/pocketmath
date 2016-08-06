@@ -2,7 +2,7 @@
 The pocketmath assignment to demostrate the usage of Pocketmath RESTful API.
 
 ### Clone
-git clone https://github.com/dusan-eremic/pocketmath.git
+`git clone https://github.com/dusan-eremic/pocketmath.git`
 
 ### Build
 `mvn clean compile assembly:single`
