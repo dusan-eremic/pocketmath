@@ -1,5 +1,5 @@
 # Pocketmath
-The pocketmath assignment demonstrates the usage of Pocketmath RESTful API.
+The pocketmath assignment demonstrates the usage of Pocketmath RESTful API. The solution uses Jersey Client as an HTTP client, Jackson JSON for sterilization purposes and Guice for dependency injection.
 
 ### Clone
 `git clone https://github.com/dusan-eremic/pocketmath.git`
