@@ -84,8 +84,19 @@ public class RESTClient implements DataClient {
 		final GenericType<List<T>> genericType = new GenericType<List<T>>(parameterizedGenericType) {
 		};
 
-		final Response response = client.target(basePath).path(path).request().header("x-api-key", apiKey)
-				.accept(MediaType.APPLICATION_JSON).get();
+		Response response = null;
+
+		do {// Re-try request for 429, 503 and 504 status codes
+			if (response != null) {
+				try {
+					Thread.sleep(100); // Wait a bit before re-requesting
+				} catch (InterruptedException e) {
+					// No need to handle this interrupt
+				}
+			}
+			response = client.target(basePath).path(path).request().header("x-api-key", apiKey)
+					.accept(MediaType.APPLICATION_JSON).get();
+		} while (response.getStatus() == 429 || response.getStatus() == 503 || response.getStatus() == 504);
 
 		if (response.getStatus() != 200) {
 			throw new RuntimeException("Error : HTTP code : " + response.getStatus());
